@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\AgamaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,19 @@ Route::get('/home', function () {
 });
 
 Route::get('blog', [BlogController::class, 'index']);
+
+Route::get('/template', function () {
+    return view('template.masterAdminLTE');
+});
+
+Route::get('/tabel', function () {
+    return view('tabel');
+});
+
+Route::get('/form', function () {
+    return view('form');
+});
+
+// Data Agama
+Route::get('addagama', [AgamaController::class, 'create']);
+Route::POST('prosesaddagama', [AgamaController::class, 'store']);
